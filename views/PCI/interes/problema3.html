@@ -1,0 +1,86 @@
+<!-- #CSS -->
+<link rel="stylesheet" href="../../../assets/css/style.css">
+<style>
+    ::placeholder {
+      font-size: 0.52em;
+    }
+</style>
+
+<section class="features" id="contacto" style="background: hsl(0, 0%, 100%); margin-top: -80px;">
+    <div class="container">
+        <p class="section-subtitle" style="font-size: 1.5em; font: weight 20px;">Problema 3</p>
+        <p style="text-align: justify; line-height: 1.6;">
+            Un padre de familia quiere invertir para que su hijo tenga educación universitaria,
+            a una tasa de interés compuesto del 15% anual durante 15 años.
+            ¿Cuánto puede recibir al final si invierte $50000?
+        </p>
+        <br>
+        <label class="label_PCI"><strong>A(t) = Ce<sup>rt</sup></strong></label>
+        <form>
+            <br>
+            <div class="contenedor-problema">
+                <label class="label_PCI">t = </label>
+                <input class="input_tiempopoblacion" type="text" id="tiempo1" required placeholder="tiempo inicial">
+                <input class="input_tiempopoblacion" type="text" id="cantidad1" required placeholder="cantidad inicial" style="margin-right:3px;">
+                <label class="label_PCI"> = Ce<sup>r</sup></label>
+                <sup><input class="input_superindice" type="text" id="potenciaT1" required placeholder=" t '"></sup>
+                <label class="label_PCI" style="margin-left: 3px;">= C</label>
+                <div class="label_PCI" id="cIn" style="margin-left:20px;"></div>
+                <br>
+            </div>
+            <br>
+            <div class="contenedor-problema">
+                <label class="label_PCI">r = </label>
+                <input class="input_tiempopoblacion" type="text" id="interes" required placeholder="tasa interes">
+            </div>
+            <br>
+            <div class="contenedor-problema">
+                <button type="button" onclick="paso1Colecta(); paso1Ejecucion()"
+                    class="btn-customized">Revisar</button>
+                <div id="mensajes1" class="error correct"></div>
+            </div>
+        </form>
+        <form id="show2nd" class="showNextStep">
+            <br>    
+            <div class="contenedor-problema">
+                <label class="label_PCI">A(t) = Ce<sup>rt</sup></label>
+                <label class="label_PCI" style="margin-left: 30px; margin-right: 3px;"> ➔ A(t) = </label>
+                <input class="input_tiempopoblacion" type="text" id="cantidad2" required placeholder=" C" style="margin-right: 1px;">
+                <label class="label_PCI">e<sup>r</sup></label>
+                <sup><input class="input_superindice" type="text" id="interes2" required placeholder=" interes r" style="width: 3.5em;"></sup>
+                <div class="label_PCI" id="formulaAt" style="margin-left:20px;"></div>
+            </div>
+            <br>
+            <div class="contenedor-problema">
+                <button type="button" onclick="paso2Colecta(); paso2Ejecucion()"
+                    class="btn-customized">Revisar</button>
+                <div id="mensajes2" class="error correct"></div>
+            </div>
+        </form>
+        <form id="show3th" class="showNextStep">
+            <br>
+            <br>    
+            <div class="contenedor-problema">
+                <label class="label_PCI">P(</label>
+                <input class="input_tiempopoblacion" type="text" id="tiempoPasado1" required placeholder="tiempoF" style="width:2.3em; margin-right: 1px;">
+                <label class="label_PCI">) = 50000e <sup>0.15</sup></label>
+                <sup>
+                    <label class="label_superindice" style="margin-right: -2px;">(</label>
+                    <input class="input_superindice" type="text" id="tiempoPasado2" required placeholder="tiempoI" style="width: 2.2em;">
+                    <label class="label_superindice" style="margin-left: -2px;">)</label>
+                </sup>
+                <div class="label_PCI" id="centavos" style="margin-left:30px;"></div>
+            </div>
+            <br>
+            <div class="contenedor-problema">
+                <button type="button" onclick="paso3Colecta(); paso3Ejecucion()"
+                    class="btn-customized">Revisar</button>
+                <div id="mensajes3" class="error correct"></div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- #SCRIPTS -->
+<script src="../../../assets/js/script.js"></script>
+<script src="../../../assets/js/PCI/interes/problema3.js"></script>

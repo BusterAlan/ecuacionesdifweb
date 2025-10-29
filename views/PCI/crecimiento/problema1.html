@@ -1,0 +1,162 @@
+<!-- #CSS -->
+<link rel="stylesheet" href="../../../assets/css/style.css">
+<style>
+    ::placeholder {
+      font-size: 0.52em;
+    }
+</style>
+
+<section class="features" id="contacto" style="background: hsl(0, 0%, 100%); margin-top: -80px;">
+    <div class="container">
+        <p class="section-subtitle" style="font-size: 1.5em; font: weight 20px;">Problema 1</p>
+        <p style="text-align: justify; line-height: 1.6;">
+            Para una ciudad con 10000 habitantes para el año 2000, y 13000 para el año 2020, ¿Qué población
+            se espera para el año 2045?
+            ¿Y para el 2100 y 2145?. Considere que la población crece exponencialmente a una tasa constante.
+        </p>
+        <br>
+        <label class="label_PCI"><strong>P(t) = Ce<sup>kt</sup></strong></label>
+        <form>
+            <br>
+            <div class="contenedor-problema">
+                <label class="label_PCI">t = </label>
+                <input class="input_tiempopoblacion" type="text" id="tiempoI" required placeholder="tiempo inicial">
+                <input class="input_tiempopoblacion" type="text" id="poblacionI" required placeholder="población inicial" style="margin-right:3px;">
+                <label class="label_PCI"> = Ce<sup>k</sup></label>
+                <sup><input class="input_superindice" type="text" id="potenciaI" required placeholder=" t '"></sup>
+                <label class="label_PCI" style="margin-left: 3px;">= C</label>
+                <div class="label_PCI" id="c1" style="margin-left:20px;"></div>
+                <br>
+            </div>
+            <br>
+            <div class="contenedor-problema">
+                <label class="label_PCI">t = </label>
+                <input class="input_tiempopoblacion" type="text" id="tiempoF" required placeholder="tiempo final">
+                <input class="input_tiempopoblacion" type="text" id="poblacionF" required placeholder="población final" style="margin-right:3px;">
+                <label class="label_PCI"> = Ce<sup>k</sup></label>
+                <sup><input class="input_superindice" type="text" id="potenciaF" required placeholder=" t ''"></sup>
+                
+                <div class="showNextStep" id="showC2">
+                    <label class="label_PCI" style="margin-left: 52px;"> ➔ C = </label>
+                    <div class="label_fraccion" style="margin-left: 3px; top: 1em;">
+                        <label class="numerador label_PCI">13000</label>
+                        <span class="label_linea"></span>
+                        <label class="denominador label_PCI">e<sup>20k</sup></label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="contenedor-problema">
+                <button type="button" onclick="paso1Colecta(); paso1Ejecucion()"
+                    class="btn-customized">Revisar</button>
+                <div id="mensajes1" class="error correct"></div>
+            </div>
+        </form>
+        <form id="show2nd" class="showNextStep">
+            <br>
+            <br>
+            <div class="contenedor-problema">
+                <label class="label_PCI">10000 = </label>
+                <div class="label_fraccion" style="margin-left: 3px; margin-right: 30px;">
+                    <label class="numerador label_PCI">13000</label>
+                    <span class="label_linea"></span>
+                    <label class="denominador label_PCI">e<sup>20k</sup></label>
+                </div>
+
+                <label class="label_PCI"> ➔ e<sup>20k</sup> = </label style="margin-left: 3px;">
+                <div class="input_fraccion" style="margin-left: 3px;">
+                    <input class="input_tiempopoblacion numerador" type="text" id="P1" required placeholder="población final">
+                    <span class="input_linea"></span> 
+                    <input class="input_tiempopoblacion denominador" type="text" id="P2" required placeholder="población inicial">
+                </div>
+
+                <div id="showk" class="showNextStep">
+                    <label class="label_PCI"> ➔ e<sup>20k</sup> = 13/10</label style="margin-left: 30px;">
+                </div>
+            </div>
+
+            <div class="contenedor-problema">
+                <button type="button" onclick="paso2Colecta(); paso2Ejecucion()"
+                    class="btn-customized">Revisar</button>
+                <div id="mensajes2" class="error correct"></div>
+            </div>
+        </form>
+        <form id="show3th" class="showNextStep">
+            <br>
+            <br>
+            <div class="contenedor-problema">
+                <div class="label_PCI" id="ultimos1" style="margin-right: 30px;"></div>
+                <div class="label_PCI" id="ultimos2" style="margin-right: 30px;"></div>
+
+                <label class="label_PCI"> ➔ k = </label>
+                <div class="input_fraccion" style="margin-left: 3px;">
+                    <input class="input_tiempopoblacion numerador" type="text" id="PP1" required style="width: 4.3em;">
+                    <span class="input_linea"></span> 
+                    <input class="input_tiempopoblacion denominador" type="text" id="PP2" required style="width: 4.3em;">
+                </div>
+                <div class="label_PCI" id="equivalent"></div>
+            </div>
+            <div class="contenedor-problema">
+                <button type="button" onclick="paso3Colecta(); paso3Ejecucion()"
+                    class="btn-customized">Revisar</button>
+                <div id="mensajes3" class="error correct"></div>
+            </div>
+        </form>
+        <form id="show4th" class="showNextStep">
+            <br>
+            <!-- separador de preguntas abiertas -->
+            <hr>
+            <br>
+            <div id="pregunta1"></div>
+            <br>
+            <div class="contenedor-problema">
+                <label class="label_PCI">t = </label>
+                <input class="input_tiempopoblacion" style="margin-right: 25px;" type="text" id="tPregunta1" required placeholder="tiempo final">
+                <label class="label_PCI">P(100) = 25000e</label>
+                <sup><input class="input_superindice" type="text" id="k1" required placeholder=" tasa K" style="width: 4.5em;"></sup>
+                <sup>
+                    <label class="label_superindice" style="margin-right: -2px;">(</label>
+                    <input class="input_superindice" type="text" id="t1" required placeholder="tiempoI" style="width: 2.2em;">
+                    <label class="label_superindice" style="margin-left: -2px;">)</label>
+                </sup>
+                <div class="label_PCI" id="habitantesP1" style="margin-left:5px;"></div>
+            </div>
+            <br>
+            <div class="contenedor-problema">
+                <button type="button" onclick="paso4Colecta(); paso4Ejecucion()"
+                    class="btn-customized">Revisar</button>
+                <div id="mensajes4" class="error correct"></div>
+            </div>
+        </form>
+        <form id="show5th" class="showNextStep">
+            <br>
+            <br>
+            <div id="pregunta2"></div>
+            <br>
+            <div class="contenedor-problema">
+                <label class="label_PCI">t = </label>
+                <input class="input_tiempopoblacion" style="margin-right: 25px;" type="text" id="tPregunta2" required placeholder="tiempo final">
+                <label class="label_PCI">P(145) = 25000e</label>
+                <sup><input class="input_superindice" type="text" id="k2" required placeholder=" tasa K" style="width: 4.5em;"></sup>
+                <sup>
+                    <label class="label_superindice" style="margin-right: -2px;">(</label>
+                    <input class="input_superindice" type="text" id="t2" required placeholder="tiempoF" style="width: 2.2em;">
+                    <label class="label_superindice" style="margin-left: -2px;">)</label>
+                </sup>
+                <div class="label_PCI" id="habitantesP2" style="margin-left:5px;"></div>
+            </div>
+            <br>
+            <div class="contenedor-problema">
+                <button type="button" onclick="paso5Colecta(); paso5Ejecucion()"
+                    class="btn-customized">Revisar</button>
+                <div id="mensajes5" class="error correct"></div>
+            </div>
+            <br>
+        </form>
+    </div>
+</section>
+
+<!-- #SCRIPTS -->
+<script src="../../../assets/js/script.js"></script>
+<script src="../../../assets/js/PCI/crecimiento/problema1.js"></script>

@@ -1,0 +1,148 @@
+<!-- #CSS -->
+<link rel="stylesheet" href="../../../assets/css/style.css">
+<style>
+    ::placeholder {
+      font-size: 0.52em;
+    }
+</style>
+<section class="features" id="contacto" style="background: hsl(0, 0%, 100%); margin-top: -80px;">
+    <div class="container">
+        <p class="section-subtitle" style="font-size: 1.5em; font: weight 20px;">Problema 3</p>
+        <p style="text-align: justify; line-height: 1.6;">
+            La población de bacterias en un cultivo crece a una razón proporcional a la cantidad de bacterias presentes al tiempo t. 
+            Después de 3 horas se observa que hay 400 bacterias presentes. Después de 10 horas hay 2000 bacterias presentes. 
+            ¿Cuál era la cantidad inicial de bacterias?
+        </p>
+        <br>
+        <label class="label_PCI"><strong>P(t) = Ce<sup>kt</sup></strong></label>
+        <form>
+            <br>
+            <div class="contenedor-problema">
+                <label class="label_PCI">t = </label>
+                <input class="input_tiempopoblacion" type="text" id="tiempoI" required placeholder="tiempo inicial">
+                <input class="input_tiempopoblacion" type="text" id="poblacionI" required placeholder="población inicial" style="margin-right:3px;">
+                <label class="label_PCI"> = Ce<sup>k</sup></label>
+                <sup><input class="input_superindice" type="text" id="potenciaI" required placeholder=" t '"></sup>
+
+                <div class="showNextStep" id="showC1">
+                    <label class="label_PCI" style="margin-left: 35px;"> ➔ C = </label>
+                    <div class="label_fraccion" style="margin-left: 3px; top: 1em;">
+                        <label class="numerador label_PCI">400</label>
+                        <span class="label_linea"></span>
+                        <label class="denominador label_PCI">e<sup>3k</sup></label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="contenedor-problema">
+                <label class="label_PCI">t = </label>
+                <input class="input_tiempopoblacion" type="text" id="tiempoF" required placeholder="tiempo final">
+                <input class="input_tiempopoblacion" type="text" id="poblacionF" required placeholder="población final" style="margin-right:3px;">
+                <label class="label_PCI"> = Ce<sup>k</sup></label>
+                <sup><input class="input_superindice" type="text" id="potenciaF" required placeholder=" t ''"></sup>
+                
+                <div class="showNextStep" id="showC2">
+                    <label class="label_PCI" style="margin-left: 32px;"> ➔ C = </label>
+                    <div class="label_fraccion" style="margin-left: 3px; top: 1em;">
+                        <label class="numerador label_PCI">10000</label>
+                        <span class="label_linea"></span>
+                        <label class="denominador label_PCI">e<sup>10k</sup></label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="contenedor-problema">
+                <button type="button" onclick="paso1Colecta(); paso1Ejecucion()"
+                    class="btn-customized">Revisar</button>
+                <div id="mensajes1" class="error correct"></div>
+            </div>
+        </form>
+        <form id="show2nd" class="showNextStep">
+            <br>
+            <br>
+            <div class="contenedor-problema">
+                <div class="label_fraccion">
+                    <label class="numerador label_PCI">400</label>
+                    <span class="label_linea"></span>
+                    <label class="denominador label_PCI">e<sup>3k</sup></label>
+                </div>
+                <label class="label_PCI" style="margin-right: 10px; margin-left: 10px;"> = </label>
+                <div class="label_fraccion" style="margin-left: 3px; ">
+                    <label class="numerador label_PCI">2000</label>
+                    <span class="label_linea"></span>
+                    <label class="denominador label_PCI">e<sup>10k</sup></label>
+                </div>
+
+                <label class="label_PCI" style="margin-left: 30px;"> ➔ </label>
+                <div class="label_fraccion" style="margin-left: 3px; ">
+                    <label class="numerador label_PCI">e<sup>10k</sup></label>
+                    <span class="label_linea"></span>
+                    <label class="denominador label_PCI">e<sup>3k</sup></label>
+                </div>
+                <label class="label_PCI" style="margin-right: 10px; margin-left: 10px;"> = </label>
+                <div class="label_fraccion" style="margin-left: 3px; ">
+                    <label class="numerador label_PCI">2000</label>
+                    <span class="label_linea"></span>
+                    <label class="denominador label_PCI">400</label>
+                </div>
+                <label class="label_PCI" style="margin-left: 30px;"> ➔ <del>ln(e)</del><sup>7k</sup> = ln(5)</label>
+            </div>
+            <br>
+            <div class="contenedor-problema">
+                <label class="label_PCI">7k = ln(5)</label>
+                <label class="label_PCI" style="margin-left: 30px;"> ➔ k = </label>
+                <div class="input_fraccion" style="margin-left: 3px;">
+                    <input class="input_tiempopoblacion numerador" type="text" id="despeje1" style="width: 2.5em;" required>
+                    <span class="input_linea"></span> 
+                    <input class="input_tiempopoblacion denominador" type="text" id="despeje2" style="width: 2.5em;" required>
+                </div>
+                <div class="showNextStep" id="showk">
+                    <label class="label_PCI" style="margin-left: 3px;"> = 0.23</label>
+                </div>
+            </div>
+            <div class="contenedor-problema">
+                <button type="button" onclick="paso2Colecta(); paso2Ejecucion()"
+                    class="btn-customized">Revisar</button>
+                <div id="mensajes2" class="error correct"></div>
+            </div>
+        </form>
+        <form id="show3th" class="showNextStep">
+            <br>
+            <br>
+            <div class="contenedor-problema">
+                <label class="label_PCI">P(3) = Ce<sup>3k</sup> = 400</label>
+                <label class="label_PCI"style="margin-left: 30px;"> ➔ C = 400e</label>
+                <sup><input class="input_superindice" type="text" id="tiempo_" required placeholder="tiempo" style="width: 2em;"></sup>
+                <sup>
+                    <label class="label_superindice" style="margin-right: -2px;">(</label>
+                    <input class="input_superindice" type="text" id="tasa_k" required placeholder="tasa K" style="width: 2.5em;">
+                    <label class="label_superindice" style="margin-left: -2px;">)</label>
+                </sup>
+                <div class="label_PCI" id="resultadoCC" style="margin-left:10px;"></div>
+            </div>
+            <br>
+            <div class="contenedor-problema">
+                <button type="button" onclick="paso3Colecta(); paso3Ejecucion()"
+                    class="btn-customized">Revisar</button>
+                <div id="mensajes3" class="error correct"></div>
+            </div>
+        </form>
+        <form id="show4th" class="showNextStep">
+            <br>
+            <p>¿Cuál era la cantidad inicial de bacterias?</p>
+            <br>
+            <div class="contenedor-problema">
+                <label class="label_PCI"><strong>P(t) = Ce<sup>kt</sup></strong></label>
+                <label class="label_PCI" style="margin-left: 30px;"> ➔ P<sub>0</sub> = 200.6e<sup>(0.23)0</sup></label>
+                <label class="label_PCI" style="margin-left: 5px;"> = 200.6</label>
+            </div>
+            <br>
+            <p>Por lo tanto la población en t<sub>0</sub> ≈ 201 habitantes</p>
+        </form>
+    </div>
+</section>
+
+<!-- #SCRIPTS -->
+<script src="../../../assets/js/script.js"></script>
+<script src="../../../assets/js/PCI/crecimiento/problema3.js"></script>
