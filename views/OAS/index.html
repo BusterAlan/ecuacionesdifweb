@@ -189,9 +189,8 @@
                 </div>
             </section>
 
-            <iframe class="iframe-problems" src="problema1.html" width="100%" height="500"></iframe>
-            <iframe class="iframe-problems" src="problema2.html" width="100%" height="500"></iframe>
-            <iframe class="iframe-problems" src="problema3.html" width="100%" height="500"></iframe>
+            <!-- Contenedor dinámico de problemas -->
+            <div id="contenedor-problemas"></div>
         </article>
     </main>
 
@@ -354,8 +353,20 @@
 
     </footer>
 
-    <!-- #SCRIPTS -->
-    <script src="../../../assets/js/script.js"></script>
+    <!-- Scripts -->
+    <script src="../../assets/js/OAS/problemasOAS-config.js"></script>
+    <script src="../../assets/js/OAS/generadorProblemasOAS.js"></script>
+    <script>
+        // Generar todos los problemas al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            const contenedor = document.getElementById('contenedor-problemas');
+            
+            problemasOAS.forEach(problema => {
+                const problemaHTML = generadorOAS.generarHTML(problema);
+                contenedor.innerHTML += problemaHTML;
+            });
+        });
+    </script>
 
     <!-- #ICONS -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
